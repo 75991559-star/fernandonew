@@ -1,0 +1,3 @@
+@model Producto
+@{ ViewData["Title"] = "Eliminar producto"; }
+<div class="page-heading"><div><p class="eyebrow">MILIBRERÍA · ELIMINAR REGISTRO</p><h1>Eliminar producto</h1></div><a class="button button-outline" asp-action="List">Volver al listado</a></div><section class="panel confirm-panel"><div class="warning-icon">!</div><h2>¿Eliminar “@Model.DesPro”?</h2><p>Se quitará el producto PRO-@Model.IdePro.ToString("D4") de la colección.</p><form asp-action="Delete" asp-route-id="@Model.IdePro" method="post"><button class="button button-danger" type="submit">Sí, eliminar</button><a class="button button-outline" asp-action="List">Cancelar</a></form></section>

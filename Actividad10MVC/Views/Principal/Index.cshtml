@@ -1,0 +1,19 @@
+@{
+    ViewData["Title"] = "Inicio";
+}
+<section class="hero">
+    <div class="hero-copy">
+        <p class="eyebrow">TALLER DE PROGRAMACIÓN WEB · ACTIVIDAD 10</p>
+        <h1>Mantenimiento<br />de registros</h1>
+        <p>Administra empleados, productos y clientes desde una sola aplicación MVC.</p>
+        <a class="button button-light" asp-controller="Empleado" asp-action="List">Explorar registros <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="hero-art" aria-hidden="true"><div class="art-card card-back"></div><div class="art-card card-front"><span class="art-line wide"></span><span class="art-line"></span><span class="art-line short"></span><span class="art-dot">✓</span></div><div class="art-orbit"></div></div>
+</section>
+<section class="section-heading"><div><p class="eyebrow">MÓDULOS</p><h2>Casos de la actividad</h2></div><span class="muted">Los datos se guardan en memoria durante la ejecución.</span></section>
+<section class="module-grid">
+    <a class="module-card module-employees" asp-controller="Empleado" asp-action="List"><span class="module-icon">01</span><span class="module-label">CASO DESARROLLADO</span><h3>Empleados</h3><p>Registro y mantenimiento del personal de DATASOFT.</p><span class="module-count">@ViewBag.TotalEmpleados registros <b>↗</b></span></a>
+    <a class="module-card module-products" asp-controller="Producto" asp-action="List"><span class="module-icon">02</span><span class="module-label">CASO PROPUESTO 01</span><h3>Productos</h3><p>Control de productos y existencias de MILIBRERÍA.</p><span class="module-count">@ViewBag.TotalProductos registros <b>↗</b></span></a>
+    <a class="module-card module-clients" asp-controller="Cliente" asp-action="List"><span class="module-icon">03</span><span class="module-label">CASO PROPUESTO 02</span><h3>Clientes</h3><p>Directorio con distrito, contacto y fecha de registro.</p><span class="module-count">@ViewBag.TotalClientes registros <b>↗</b></span></a>
+</section>
+<section class="note-strip"><span class="note-icon">i</span><p>Los códigos se generan automáticamente. Cada módulo permite crear, consultar, editar y eliminar registros.</p><span class="note-tag">MVC · C# · List&lt;T&gt;</span></section>

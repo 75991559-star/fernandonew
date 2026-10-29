@@ -1,0 +1,16 @@
+@model Empleado
+@{ var formAction = (string)ViewData["FormAction"]!; var editando = formAction == "Edit"; }
+<section class="panel form-panel"><form asp-action="@formAction" asp-route-id="@Model.Codigo" method="post">
+    <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+    @if (editando) { <input asp-for="Codigo" type="hidden" /> <div class="field"><label asp-for="Codigo"></label><input value="EMP-@Model.Codigo.ToString("D4")" readonly /></div> }
+    else { <div class="field"><label asp-for="Codigo"></label><input value="EMP-@((int)ViewBag.CodigoSiguiente).ToString("D4") · automático" readonly /></div> }
+    <div class="form-grid">
+        <div class="field"><label asp-for="Apellidos"></label><input asp-for="Apellidos" placeholder="Apellidos del empleado" /><span asp-validation-for="Apellidos"></span></div>
+        <div class="field"><label asp-for="Nombres"></label><input asp-for="Nombres" placeholder="Nombres del empleado" /><span asp-validation-for="Nombres"></span></div>
+        <div class="field"><label asp-for="FechaNacimiento"></label><input asp-for="FechaNacimiento" type="date" asp-format="{0:yyyy-MM-dd}" /><span asp-validation-for="FechaNacimiento"></span></div>
+        <div class="field"><label asp-for="Categoria"></label><select asp-for="Categoria" asp-items="ViewBag.Categorias"><option value="">Selecciona una categoría</option></select><span asp-validation-for="Categoria"></span></div>
+        <div class="field"><label asp-for="Hijos"></label><input asp-for="Hijos" type="number" min="0" max="3" placeholder="Opcional (0 a 3)" /><span asp-validation-for="Hijos"></span></div>
+        <div class="field"><label asp-for="Correo"></label><input asp-for="Correo" type="email" placeholder="Opcional" /><span asp-validation-for="Correo"></span></div>
+    </div>
+    <div class="form-actions"><button class="button" type="submit">@(editando ? "Guardar cambios" : "Registrar empleado")</button><a class="button button-outline" asp-action="List">Cancelar</a></div>
+</form></section>

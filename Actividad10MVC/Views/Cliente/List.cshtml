@@ -1,0 +1,8 @@
+@model IEnumerable<Cliente>
+@{ ViewData["Title"] = "Clientes"; }
+<div class="page-heading"><div><p class="eyebrow">CASO PROPUESTO 02 · MILIBRERÍA</p><h1>Clientes</h1><p class="muted">Administra los datos de contacto de tus clientes.</p></div><a class="button" asp-action="Create">＋ Nuevo cliente</a></div>
+@if (TempData["Mensaje"] is string mensaje) { <div class="alert-success">@mensaje</div> }
+<section class="panel"><form class="search-form" asp-action="List" method="get"><label for="q">Buscar por nombre o distrito</label><div><input id="q" name="q" value="@ViewBag.Busqueda" placeholder="Nombre o distrito" /><button class="button button-dark" type="submit">Buscar</button></div></form><div class="table-wrap"><table><thead><tr><th>IDE_CLI</th><th>Nombre del Cliente</th><th>Distrito</th><th>Número Telefónico</th><th>Correo Electrónico</th><th>Fecha de Registro</th><th>ACCIONES</th></tr></thead><tbody>
+@foreach (var item in Model) { <tr><td class="code-cell">CLI-@item.IdeCli.ToString("D4")</td><td>@item.NomCli</td><td>@item.IdeDis</td><td>@item.TelCli</td><td>@item.CorCli</td><td>@item.FreCli?.ToString("dd/MM/yyyy")</td><td class="actions"><a asp-action="Details" asp-route-id="@item.IdeCli">Ver</a><a asp-action="Edit" asp-route-id="@item.IdeCli">Editar</a><a class="danger-link" asp-action="Delete" asp-route-id="@item.IdeCli">Eliminar</a></td></tr> }
+@if (!Model.Any()) { <tr><td colspan="7" class="empty-state">No hay clientes registrados todavía.</td></tr> }
+</tbody></table></div></section>

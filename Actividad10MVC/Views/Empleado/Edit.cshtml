@@ -1,0 +1,4 @@
+@model Empleado
+@{ ViewData["Title"] = "Editar empleado"; ViewData["FormAction"] = "Edit"; }
+<div class="page-heading"><div><p class="eyebrow">CASO DESARROLLADO · DATASOFT</p><h1>Editar empleado</h1><p class="muted">Actualiza la información del registro.</p></div><a class="button button-outline" asp-action="List">Volver al listado</a></div>
+<partial name="_Form" model="Model" />

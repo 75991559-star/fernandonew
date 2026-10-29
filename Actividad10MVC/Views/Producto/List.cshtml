@@ -1,0 +1,8 @@
+@model IEnumerable<Producto>
+@{ ViewData["Title"] = "Productos"; }
+<div class="page-heading"><div><p class="eyebrow">CASO PROPUESTO 01 · MILIBRERÍA</p><h1>Productos</h1><p class="muted">Controla el catálogo, las categorías y el stock.</p></div><a class="button" asp-action="Create">＋ Nuevo producto</a></div>
+@if (TempData["Mensaje"] is string mensaje) { <div class="alert-success">@mensaje</div> }
+<section class="panel"><form class="search-form" asp-action="List" method="get"><label for="q">Buscar producto</label><div><input id="q" name="q" value="@ViewBag.Busqueda" placeholder="Descripción del producto" /><button class="button button-dark" type="submit">Buscar</button></div></form><div class="table-wrap"><table><thead><tr><th>IDE_PRO</th><th>DES_PRO</th><th>FRE_PRO</th><th>CAT_PRO</th><th>STO_PRO</th><th>PRE_PRO</th><th>ACCIONES</th></tr></thead><tbody>
+@foreach (var item in Model) { <tr><td class="code-cell">PRO-@item.IdePro.ToString("D4")</td><td>@item.DesPro</td><td>@item.FrePro?.ToString("dd/MM/yyyy")</td><td><span class="pill">@item.CatPro</span></td><td>@item.StoPro</td><td>@item.PrePro?.ToString("C2")</td><td class="actions"><a asp-action="Details" asp-route-id="@item.IdePro">Ver</a><a asp-action="Edit" asp-route-id="@item.IdePro">Editar</a><a class="danger-link" asp-action="Delete" asp-route-id="@item.IdePro">Eliminar</a></td></tr> }
+@if (!Model.Any()) { <tr><td colspan="7" class="empty-state">No hay productos registrados todavía.</td></tr> }
+</tbody></table></div></section>

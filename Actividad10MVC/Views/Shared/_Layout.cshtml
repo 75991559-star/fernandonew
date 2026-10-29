@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Taller MVC</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" asp-controller="Principal" asp-action="Index"><span class="brand-mark">M</span><span>Milibrería <small>gestión de registros</small></span></a>
+        <nav class="main-nav" aria-label="Navegación principal">
+            <a asp-controller="Principal" asp-action="Index">Inicio</a>
+            <a asp-controller="Empleado" asp-action="List">Empleados</a>
+            <a asp-controller="Producto" asp-action="List">Productos</a>
+            <a asp-controller="Cliente" asp-action="List">Clientes</a>
+        </nav>
+    </header>
+    <main class="page-shell">
+        @RenderBody()
+    </main>
+    <footer class="footer">
+    <span>Taller de Programación Web</span>
+    <span>Paco Mendoza Fernando Christian</span>
+    <span>Actividad de Aprendizaje N.º 10 · MVC + List&lt;T&gt;</span>
+</footer>
+</body>
+</html>

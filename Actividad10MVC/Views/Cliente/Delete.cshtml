@@ -1,0 +1,3 @@
+@model Cliente
+@{ ViewData["Title"] = "Eliminar cliente"; }
+<div class="page-heading"><div><p class="eyebrow">MILIBRERÍA · ELIMINAR REGISTRO</p><h1>Eliminar cliente</h1></div><a class="button button-outline" asp-action="List">Volver al listado</a></div><section class="panel confirm-panel"><div class="warning-icon">!</div><h2>¿Eliminar a @Model.NomCli?</h2><p>Se quitará el cliente CLI-@Model.IdeCli.ToString("D4") de la colección.</p><form asp-action="Delete" asp-route-id="@Model.IdeCli" method="post"><button class="button button-danger" type="submit">Sí, eliminar</button><a class="button button-outline" asp-action="List">Cancelar</a></form></section>

@@ -1,0 +1,4 @@
+@model Empleado
+@{ ViewData["Title"] = "Detalle de empleado"; }
+<div class="page-heading"><div><p class="eyebrow">DATASOFT · EMPLEADO EMP-@Model.Codigo.ToString("D4")</p><h1>@Model.Apellidos, @Model.Nombres</h1></div><a class="button button-outline" asp-action="List">Volver al listado</a></div>
+<section class="panel detail-panel"><dl><dt>CODIGO</dt><dd>EMP-@Model.Codigo.ToString("D4")</dd><dt>APELLIDOS</dt><dd>@Model.Apellidos</dd><dt>NOMBRES</dt><dd>@Model.Nombres</dd><dt>FECHA DE NACIMIENTO</dt><dd>@Model.FechaNacimiento?.ToString("dd/MM/yyyy")</dd><dt>CATEGORIA</dt><dd>@Model.Categoria</dd><dt>HIJOS</dt><dd>@(Model.Hijos?.ToString() ?? "No especificado")</dd><dt>EMAIL</dt><dd>@(string.IsNullOrWhiteSpace(Model.Correo) ? "No especificado" : Model.Correo)</dd></dl><div class="form-actions"><a class="button" asp-action="Edit" asp-route-id="@Model.Codigo">Editar empleado</a><a class="button button-outline" asp-action="List">Cerrar</a></div></section>
